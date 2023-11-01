@@ -42,17 +42,20 @@ namespace Map_RPG___Nadim
         }
 
 
-        static void DisplayMap()
+        public static void DisplayMap()
         {
-            for (int i = 0; i<map.GetLength(0); i++)
+            for (int i = 0; i < map.GetLength(0); i++)
             {
-                for (int j = 0; j<map.GetLength(1); j++) 
+                for (int j = 0; j < map.GetLength(1); j++) 
                 {
                     Console.Write(map[i, j]);
                 }
                 Console.WriteLine();
             }
+            Console.ReadKey(true);
 
         }
+
     }
+
 }
