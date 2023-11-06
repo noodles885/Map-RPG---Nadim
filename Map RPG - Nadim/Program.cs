@@ -40,8 +40,8 @@ namespace Map_RPG___Nadim
             int scale = Console.Read();
 
             DisplayMap();
+            DisplayMap(1);
             DisplayMap(2);
-
         }
 
 
@@ -65,18 +65,21 @@ namespace Map_RPG___Nadim
         
         static void DisplayMap(int scale)
         {
-            Console.WriteLine("+" + new string('-', map.GetLength(1)) + "+");
+            int row = map.GetLength(0) * scale;
+            int cols = map.GetLength(1) * scale;
 
-            for (int i = 0; i < map.GetLength(0) * scale; i++)
+            Console.WriteLine("+" + new string('-', cols) + "+");
+
+            for (int i = 0; i < row; i++)
             {
                 Console.Write("|");
-                for (int j = 0; j < map.GetLength(1) * scale; j++)
+                for (int j = 0; j < cols; j++)
                 {
-                    Console.Write(map[i, j]);
+                    Console.Write(map[i / scale, j / scale]);
                 }
                 Console.WriteLine("|");
             }
-            Console.WriteLine("+" + new string('-', map.GetLength(1)) + "+");
+            Console.WriteLine("+" + new string('-', cols) + "+");
             Console.ReadKey(true);
         }
         
