@@ -39,6 +39,19 @@ namespace Map_RPG___Nadim
             
             int scale = Console.Read();
 
+            Console.WriteLine(" Map Legend:");
+            Console.WriteLine(" ^ = mountain");
+            Console.WriteLine(" ` = grass");
+            Console.WriteLine(" ~ = water");
+            Console.WriteLine(" * = trees");
+
+
+            // ^ = mountain
+            // ` = grass
+            // ~ = water
+            // * = trees
+
+
             DisplayMap();
             DisplayMap(1);
             DisplayMap(2);
