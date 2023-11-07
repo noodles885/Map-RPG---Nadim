@@ -59,6 +59,7 @@ namespace Map_RPG___Nadim
 
         static void theLegend()
         {
+            Console.WriteLine();
             Console.WriteLine(" Map Legend:");
             Console.WriteLine(" ^ = Mountain");
             Console.WriteLine(" ` = Grass");
@@ -79,8 +80,10 @@ namespace Map_RPG___Nadim
                 Console.Write("|");
                 for (int j = 0; j < map.GetLength(1); j++)
                 {
+                    Console.BackgroundColor = GetTileColor(map[i, j]);
                     Console.ForegroundColor = GetTileColor(map[i, j]);
                     Console.Write(map[i, j]);
+                    
                     Console.ResetColor();
                 }
                 Console.WriteLine("|");
@@ -102,6 +105,7 @@ namespace Map_RPG___Nadim
                 Console.Write("|");
                 for (int j = 0; j < cols; j++)
                 {
+                    Console.BackgroundColor = GetTileColor(map[i / scale, j / scale]);
                     Console.ForegroundColor = GetTileColor(map[i / scale, j / scale]);
                     Console.Write(map[i / scale, j / scale]);
                     Console.ResetColor();
