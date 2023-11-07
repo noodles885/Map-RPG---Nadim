@@ -9,6 +9,7 @@ namespace Map_RPG___Nadim
 {
     internal class Program
     {
+
         static char[,] map = new char[,] // dimensions defined by following data:
         {
             {'^','^','^','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`'},
@@ -46,12 +47,20 @@ namespace Map_RPG___Nadim
         
         static void Main(string[] args)
         {
+            int width = Console.LargestWindowWidth;
+            int height = Console.LargestWindowHeight;
 
+
+            Console.SetWindowPosition(0, 0);
+            Console.SetWindowSize(width,height);
+            
 
             theLegend();
             DisplayMap();
+            Console.Clear();
             theLegend();
             DisplayMap(2);
+            Console.Clear();
             theLegend();
             DisplayMap(3);
 
@@ -90,6 +99,7 @@ namespace Map_RPG___Nadim
             }
             Console.WriteLine("+" + new string('-', map.GetLength(1)) + "+");
             Console.ReadKey(true);
+
         }
 
         
@@ -114,6 +124,7 @@ namespace Map_RPG___Nadim
             }
             Console.WriteLine("+" + new string('-', cols) + "+");
             Console.ReadKey(true);
+
         }
 
         // map legend:
