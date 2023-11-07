@@ -10,7 +10,7 @@ namespace Map_RPG___Nadim
     internal class Program
     {
 
-        static char[,] map = new char[,] // dimensions defined by following data:
+        static char[,] map = new char[,] 
         {
             {'^','^','^','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`'},
             {'^','^','`','`','`','`','*','*','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','~','~','~','`','`','`','`','`','`','`','`','`','`','`'},
@@ -21,7 +21,7 @@ namespace Map_RPG___Nadim
             {'`','`','`','`','~','~','~','`','`','`','`','`','`','`','*','*','`','`','`','`','`','`','^','^','^','^','^','`','`','`','`','`','`','*','*','*','`','`'},
             {'`','`','`','`','`','~','~','`','`','`','`','`','`','`','`','`','`','`','`','`','`','^','^','^','^','^','^','^','`','`','`','`','`','`','`','*','`','`'},
             {'`','`','`','`','`','~','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','^','^','^','^','^','^','^','`','`','`','`','`','`','~','`','`','`'},
-            {'`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','^','^','^','0','^','^','^','`','`','`','`','`','~','~','`','`','`'},
+            {'`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','^','^','^','0','^','^','^','`','`','`','`','`','~','~','~','`','`'},
             {'`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','~','~','~','~','`'},
             {'`','`','`','`','`','`','~','~','`','`','`','`','`','`','`','`','`','`','%','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','~','~','`','`'},
             {'`','`','`','`','`','~','~','~','~','x','`','`','`','`','`','`','`','%','%','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`'},
@@ -34,8 +34,7 @@ namespace Map_RPG___Nadim
 
         };
 
-        // usage: map[y, x]
-
+        
         // map legend:
         // ^ = mountain
         // ` = grass
@@ -47,27 +46,36 @@ namespace Map_RPG___Nadim
         
         static void Main(string[] args)
         {
+
             int width = Console.LargestWindowWidth;
             int height = Console.LargestWindowHeight;
 
 
             Console.SetWindowPosition(0, 0);
-            Console.SetWindowSize(width,height);
-            
+            Console.SetWindowSize(width, height);
 
-            theLegend();
+             
+            showLegend();
             DisplayMap();
             Console.Clear();
-            theLegend();
+            showLegend();
             DisplayMap(2);
             Console.Clear();
-            theLegend();
+            showLegend();
             DisplayMap(3);
+            Console.Clear();
+            showLegend();
+            DisplayMap(2);
+            Console.Clear();
+            showLegend();
+            DisplayMap();
 
         }
 
-        static void theLegend()
+        
+        static void showLegend()
         {
+
             Console.WriteLine();
             Console.WriteLine(" Map Legend:");
             Console.WriteLine(" ^ = Mountain");
@@ -78,10 +86,13 @@ namespace Map_RPG___Nadim
             Console.WriteLine(" 0 = Cave Entrance");
             Console.WriteLine(" x = Treasure");
             Console.WriteLine();
+
         }
+        
 
         static void DisplayMap()
         {
+
             Console.WriteLine("+" + new string('-', map.GetLength(1)) + "+");
 
             for (int i = 0; i < map.GetLength(0); i++)
@@ -105,6 +116,7 @@ namespace Map_RPG___Nadim
         
         static void DisplayMap(int scale)
         {
+
             int row = map.GetLength(0) * scale;
             int cols = map.GetLength(1) * scale;
 
