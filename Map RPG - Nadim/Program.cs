@@ -81,8 +81,7 @@ namespace Map_RPG___Nadim
 
             Console.WriteLine();
             Console.WriteLine(" Map Legend:");
-            Console.BackgroundColor = GetTileColor('^');
-            Console.WriteLine(new string('^', map.GetLength(1)) + " = Mountain");
+            Console.WriteLine(" ^ = Mountain");
             Console.WriteLine(" ` = Grass");
             Console.WriteLine(" ~ = Water");
             Console.WriteLine(" * = Trees");
