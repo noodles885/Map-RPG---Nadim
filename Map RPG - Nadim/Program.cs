@@ -12,6 +12,7 @@ namespace Map_RPG___Nadim
 
         static char[,] map = new char[,] 
         {
+            
             {'^','^','^','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`'},
             {'^','^','`','`','`','`','*','*','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','~','~','~','`','`','`','`','`','`','`','`','`','`','`'},
             {'^','^','`','`','`','*','*','`','`','`','`','`','`','`','*','`','`','`','`','`','`','`','~','~','~','`','`','`','`','`','`','`','`','`','*','`','`','`'},
@@ -31,6 +32,8 @@ namespace Map_RPG___Nadim
             {'`','`','`','`','`','`','`','`','~','~','`','`','`','`','`','`','`','~','~','~','`','`','`','`','`','`','`','`','`','%','%','%','`','`','`','`','`','`'},
             {'`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','~','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`'},
             {'`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`'},
+
+
 
         };
 
@@ -78,7 +81,8 @@ namespace Map_RPG___Nadim
 
             Console.WriteLine();
             Console.WriteLine(" Map Legend:");
-            Console.WriteLine(" ^ = Mountain");
+            Console.BackgroundColor = GetTileColor('^');
+            Console.WriteLine(new string('^', map.GetLength(1)) + " = Mountain");
             Console.WriteLine(" ` = Grass");
             Console.WriteLine(" ~ = Water");
             Console.WriteLine(" * = Trees");
@@ -93,11 +97,11 @@ namespace Map_RPG___Nadim
         static void DisplayMap()
         {
 
-            Console.WriteLine("+" + new string('-', map.GetLength(1)) + "+");
+            Console.WriteLine("┌" + new string('─', map.GetLength(1)) + "┐");
 
             for (int i = 0; i < map.GetLength(0); i++)
             {
-                Console.Write("|");
+                Console.Write("│");
                 for (int j = 0; j < map.GetLength(1); j++)
                 {
                     Console.BackgroundColor = GetTileColor(map[i, j]);
@@ -106,9 +110,9 @@ namespace Map_RPG___Nadim
                     
                     Console.ResetColor();
                 }
-                Console.WriteLine("|");
+                Console.WriteLine("│");
             }
-            Console.WriteLine("+" + new string('-', map.GetLength(1)) + "+");
+            Console.WriteLine("└" + new string('─', map.GetLength(1)) + "┘");
             Console.ReadKey(true);
 
         }
@@ -120,11 +124,11 @@ namespace Map_RPG___Nadim
             int row = map.GetLength(0) * scale;
             int cols = map.GetLength(1) * scale;
 
-            Console.WriteLine("+" + new string('-', cols) + "+");
+            Console.WriteLine("┌" + new string('─', cols) + "┐");
 
             for (int i = 0; i < row; i++)
             {
-                Console.Write("|");
+                Console.Write("│");
                 for (int j = 0; j < cols; j++)
                 {
                     Console.BackgroundColor = GetTileColor(map[i / scale, j / scale]);
@@ -132,9 +136,9 @@ namespace Map_RPG___Nadim
                     Console.Write(map[i / scale, j / scale]);
                     Console.ResetColor();
                 }
-                Console.WriteLine("|");
+                Console.WriteLine("│");
             }
-            Console.WriteLine("+" + new string('-', cols) + "+");
+            Console.WriteLine("└" + new string('─', cols) + "┘");
             Console.ReadKey(true);
 
         }
